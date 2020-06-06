@@ -6,7 +6,7 @@ services:
     image: nginx:alpine
     container_name: nginx
     ports:
-      - "8000:8000"
+      - "9000:9000"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
@@ -22,7 +22,7 @@ services:
       - ./src:/src
     env_file:
       - ./envs/db_keys
-    command: ["sh", "-c", "python3 manage.py runserver 0.0.0.0:8000"]
+    command: ["sh", "-c", "python3 manage.py runserver 0.0.0.0:9000"]
 
   db:
     image: postgres
@@ -34,4 +34,4 @@ services:
     image: adminer
     container_name: admin_db
     ports:
-      - "8080:8080"
+      - "9080:9080"
